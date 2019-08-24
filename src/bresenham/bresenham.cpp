@@ -31,11 +31,13 @@
  * End point: x2, y2
  */
 void bresenham(interface_t img[IMG_SIZE_H][IMG_SIZE_W],
-		int x1, int y1, int x2, int y2)
+		ap_int<DIMENSION_WORD_WIDTH> x1, ap_int<DIMENSION_WORD_WIDTH> y1,
+		ap_int<DIMENSION_WORD_WIDTH> x2, ap_int<DIMENSION_WORD_WIDTH> y2)
 {
-   int m_new = 2 * (y2 - y1);
-   int slope_error_new = m_new - (x2 - x1);
-   for (int x = x1, y = y1; x <= x2; x++)
+   ap_int<DIMENSION_WORD_WIDTH> m_new = 2 * (y2 - y1);
+   ap_int<DIMENSION_WORD_WIDTH> slope_error_new = m_new - (x2 - x1);
+   ap_int<DIMENSION_WORD_WIDTH> x, y;
+   for (x = x1, y = y1; x <= x2; x++)
    {
 	  img[y][x] = 1;
 
