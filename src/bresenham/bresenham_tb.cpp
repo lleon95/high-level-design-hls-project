@@ -1,3 +1,14 @@
+/*
+ * High level design course
+ * MSc in Electronics Engineering
+ * II Quarter - 2019
+ *
+ * By:
+ *    Luis Leon
+ *    Emmanuel Madrigal
+ *    Eliecer Mora
+ */
+
 #include <iostream>
 #include <fstream>
 
@@ -9,6 +20,11 @@
 #define Y1 2
 #define Y2 250
 
+/*
+ * This function writes the image in a file
+ * Format: raw (GRAY8)
+ * Receives: interface_t array
+ */
 int img_writer(interface_t img[IMG_SIZE_H][IMG_SIZE_W]) {
 	std::ofstream img_out (OUTPUT_FILE);
 
@@ -27,6 +43,10 @@ int img_writer(interface_t img[IMG_SIZE_H][IMG_SIZE_W]) {
 	return 0;
 }
 
+/*
+ * This function initialises the "memory" array
+ * Receives: interface_t array
+ */
 void init_array(interface_t img[IMG_SIZE_H][IMG_SIZE_W]) {
 	for (int y = 0; y < IMG_SIZE_H; y++) {
 		for (int x = 0; x < IMG_SIZE_W; x++) {
@@ -35,6 +55,12 @@ void init_array(interface_t img[IMG_SIZE_H][IMG_SIZE_W]) {
 	}
 }
 
+/*
+ * This function compares the HW and SW results looking
+ * for errors
+ * Receives: interface_t array (img_hw)
+ *           unsigned char array (img_sw)
+ */
 int compare_arrays(unsigned char img_sw[IMG_SIZE_H][IMG_SIZE_W],
 		interface_t img_hw[IMG_SIZE_H][IMG_SIZE_W])
 {
@@ -48,6 +74,14 @@ int compare_arrays(unsigned char img_sw[IMG_SIZE_H][IMG_SIZE_W],
 	return errors;
 }
 
+/*
+ * This function performs exactly the same operations at
+ * software level that the accelerator.
+ *
+ * The hardware version in RTL could perform operations
+ * in another way that the described by C++, leading to
+ * different results.
+ */
 void bresenham_sw(unsigned char img[IMG_SIZE_H][IMG_SIZE_W],
 		int x1, int y1, int x2, int y2)
 {

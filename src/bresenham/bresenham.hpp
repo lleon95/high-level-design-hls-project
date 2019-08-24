@@ -1,3 +1,14 @@
+/*
+ * High level design course
+ * MSc in Electronics Engineering
+ * II Quarter - 2019
+ *
+ * By:
+ *    Luis Leon
+ *    Emmanuel Madrigal
+ *    Eliecer Mora
+ */
+
 #ifndef __BRESENHAM__
 #define __BRESENHAM__
 
