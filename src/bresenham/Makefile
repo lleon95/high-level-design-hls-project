@@ -22,4 +22,3 @@ clean:
 	rm -rf $(MODULE)_accelerator
 	rm vivado_hls.log
 
-

@@ -53,3 +53,4 @@ void bresenham(interface_t img[IMG_SIZE_H][IMG_SIZE_W],
       }
    }
 }
+
